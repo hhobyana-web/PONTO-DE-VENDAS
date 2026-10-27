@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDV-WD | Gestão Comercial — Versão 0.4</title>
+<style>
+:root{--bg:#f4f6fa;--panel:#fff;--text:#172033;--muted:#687386;--line:#e3e8f0;--primary:#3157d5;--primary2:#2443ad;--green:#16835d;--red:#c43c45;--amber:#b7791f;--nav:#111b31;--navmuted:#aab6ce;--shadow:0 8px 24px #1720330b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 13px;font-weight:650}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9db4ff;outline-offset:2px}.primary{background:var(--primary);color:white}.primary:hover{background:var(--primary2)}.secondary{background:#edf1fa;color:#263b71}.danger{background:#fff0f0;color:var(--red)}.success{background:#e7f7ef;color:var(--green)}.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{background:var(--nav);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:11px;padding:0 9px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#5b7cff,#2f49b6);display:grid;place-items:center;font-weight:900;font-size:17px}.brand h1{font-size:17px;margin:0}.brand small{display:block;color:var(--navmuted);font-size:11px;margin-top:3px}.nav-label{color:#7f8da8;text-transform:uppercase;font-size:10px;font-weight:800;letter-spacing:.13em;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:4px}.nav button{color:#cbd5e8;background:transparent;text-align:left;display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:9px;font-weight:550}.nav button.active,.nav button:hover{background:#263454;color:white}.nav .ico{width:20px;text-align:center}.sidebar-bottom{margin-top:auto;color:#8f9bb2;font-size:12px;padding:10px}.main{min-width:0}.topbar{height:76px;background:var(--panel);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:15px}.top-left{display:flex;align-items:center;gap:12px}.topbar h2{font-size:19px;margin:0}.crumb{font-size:12px;color:var(--muted);margin-top:4px}.top-actions{display:flex;align-items:center;gap:10px}.search{width:min(260px,30vw);border:1px solid var(--line);background:#f9fafc;border-radius:10px;padding:10px 12px}.avatar{width:36px;height:36px;display:grid;place-items:center;background:#e5ebff;color:#2f49b6;border-radius:50%;font-weight:800}.content{padding:27px 30px;max-width:1600px;margin:auto}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:22px}.page-head h3{margin:0;font-size:24px;letter-spacing:-.03em}.page-head p{margin:7px 0 0;color:var(--muted);font-size:14px}.head-buttons{display:flex;gap:8px;flex-wrap:wrap}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:20px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.metric{padding:18px}.metric-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:650}.metric-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#edf1ff;font-size:16px}.metric strong{display:block;font-size:27px;margin:13px 0 5px;letter-spacing:-.04em}.metric small{color:var(--muted);font-size:12px}.up{color:var(--green)!important}.grid-main{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}.panel{padding:20px;margin-bottom:16px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.panel-head h4{margin:0;font-size:15px}.panel-head small{color:var(--muted)}.chart{height:190px;display:flex;align-items:flex-end;gap:12px;padding:10px 4px 0;border-bottom:1px solid var(--line);background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,#edf0f5 46px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px;min-width:0}.bar{width:min(27px,80%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#6985f5,#3157d5);min-height:5px}.bar-label{font-size:10px;color:var(--muted);padding-bottom:8px}.activity{display:grid;gap:14px}.activity-item{display:flex;align-items:center;gap:11px}.dot{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:#edf7f2}.activity-item b{display:block;font-size:12px}.activity-item small{color:var(--muted);font-size:11px}.activity-item .amount{margin-left:auto;font-size:12px;font-weight:750}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select,.field input,.field select{border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:white;color:var(--text)}.toolbar input{flex:1;min-width:180px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:#f8f9fc}td,th{padding:13px 14px;border-bottom:1px solid var(--line)}tbody tr:last-child td{border-bottom:0}.status{display:inline-flex;border-radius:30px;padding:5px 9px;font-size:10px;font-weight:750}.status.ok{background:#e4f7ed;color:#17784f}.status.low{background:#fff4dc;color:#99620d}.status.off{background:#f0f1f5;color:#697386}.pos-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.85fr);gap:16px}.category-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.category-row button{background:#eef1f8;color:#536078}.category-row button.active{background:var(--primary);color:white}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.product{border:1px solid var(--line);border-radius:12px;background:white;text-align:left;padding:14px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;gap:15px}.product:hover{border-color:#8ea3ff;box-shadow:0 6px 18px #3157d51a}.product .p-icon{width:37px;height:37px;border-radius:10px;display:grid;place-items:center;background:#f0f3ff;font-size:19px}.product b{display:block;font-size:13px;margin-bottom:5px}.product small{color:var(--muted);font-size:11px}.product strong{font-size:14px;color:var(--primary)}.cart-line{display:grid;grid-template-columns:1fr auto;gap:8px;padding:13px 0;border-bottom:1px solid var(--line)}.cart-line b{font-size:13px}.cart-line small{display:block;color:var(--muted);margin-top:4px}.qty{display:flex;align-items:center;gap:7px}.qty button{padding:4px 8px;background:#edf1fa;color:#233b7a}.totals{display:grid;gap:10px;margin:16px 0}.total-row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}.total-row.final{font-size:18px;color:var(--text);font-weight:800;padding-top:12px;border-top:1px solid var(--line)}.pay-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pay-buttons button{padding:12px 8px}.empty{padding:35px 15px;text-align:center;color:var(--muted);font-size:13px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:grid;gap:6px;font-size:12px;font-weight:700}.field input,.field select{width:100%;min-width:0}.notice{padding:12px 14px;border-radius:10px;background:#fff7e6;color:#875c13;font-size:12px;line-height:1.5;margin-bottom:16px}.toast{position:fixed;right:22px;bottom:22px;background:#172033;color:white;padding:13px 17px;border-radius:12px;box-shadow:var(--shadow);z-index:10;max-width:min(420px,calc(100vw - 30px));font-size:13px}.mobile-menu{display:none}.hidden{display:none!important}
+body:not(.authenticated) .app{display:none}.login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top left,#dce5ff,transparent 45%),var(--bg)}body.authenticated .login-screen{display:none}.login-card{width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 20px 70px #17203318}.login-brand{display:flex;align-items:center;gap:12px;margin-bottom:26px}.login-brand .logo{flex-shrink:0}.login-card h2{font-size:24px;margin:0 0 7px}.login-card p{font-size:13px;line-height:1.6;color:var(--muted)}.login-card .field{margin:20px 0}.login-card input{width:100%;border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--panel);color:var(--text)}.login-card button{width:100%;padding:13px}.login-error{color:var(--red);font-size:12px;min-height:18px;margin:8px 0}.demo-warning{font-size:11px!important;background:#fff4dc;color:#875c13!important;padding:11px;border-radius:10px}.logout-btn{background:#edf1fa;color:#263b71;font-size:12px}body.dark .login-screen{background:radial-gradient(circle at top left,#263454,transparent 45%),var(--bg)}body.dark .logout-btn{background:#25324a;color:#dbe5ff}
+body.dark{--bg:#0d1320;--panel:#151e2e;--text:#edf2fc;--muted:#9aa8bf;--line:#2a364a;--nav:#090e18;--shadow:0 8px 24px #0002}body.dark .search,body.dark .toolbar input,body.dark .toolbar select,body.dark .field input,body.dark .field select,body.dark .product{background:#101827;color:var(--text);border-color:var(--line)}body.dark th{background:#1b2638}body.dark .category-row button{background:#222f45;color:#c7d4ee}body.dark .category-row button.active{background:var(--primary);color:white}body.dark .metric-icon,body.dark .product .p-icon{background:#273653}body.dark .secondary{background:#25324a;color:#dbe5ff}body.dark .chart{background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,#2a364a 46px)}
+@media(max-width:1050px){.app{grid-template-columns:205px 1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-main{grid-template-columns:1fr}.content{padding:22px}.topbar{padding:0 22px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.app{grid-template-columns:1fr}.sidebar{position:fixed;inset:0 auto 0 0;width:260px;z-index:20;transform:translateX(-105%);transition:transform .2s;box-shadow:10px 0 40px #0002}.sidebar.open{transform:translateX(0)}.mobile-menu{display:inline-block;background:#eef1fa;color:#1e315d}.topbar{height:66px;padding:0 14px}.topbar h2{font-size:16px}.crumb,.search,.hide-mobile{display:none}.content{padding:18px 13px}.page-head{flex-direction:column}.page-head h3{font-size:22px}.cards{gap:9px}.metric{padding:13px}.metric strong{font-size:22px}.metric-top{font-size:10px}.metric-icon{width:29px;height:29px}.pos-layout{grid-template-columns:1fr}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:120px;padding:11px}.form-grid{grid-template-columns:1fr}.panel{padding:15px}.head-buttons{width:100%}.head-buttons button{flex:1}}
+
+/* PDV-WD visual refresh 0.3 — identidade azul, laranja e branco */
+:root{--bg:#f4f8fd;--panel:#ffffff;--text:#172b45;--muted:#667991;--line:#dce6f2;--primary:#1769d2;--primary2:#0f50a8;--nav:#102b50;--navmuted:#b7c9e2;--shadow:0 10px 28px #15365c0c}
+body{background:var(--bg)}
+.logo{background:linear-gradient(135deg,#ffad4d 0%,#f58220 100%);color:#102b50;box-shadow:0 5px 14px #f582202b}
+.sidebar{background:linear-gradient(180deg,#12345f 0%,#0c2342 100%);border-right:1px solid #244b79}
+.nav-label{color:#9eb6d6}
+.nav button{color:#d9e6f6;transition:background .18s ease,transform .18s ease}
+.nav button.active,.nav button:hover{background:#1b477b;color:#fff}
+.nav button.active{box-shadow:inset 3px 0 0 #ff922e}
+.nav button:hover{transform:translateX(2px)}
+.topbar{box-shadow:0 4px 16px #15365c08}
+.topbar h2{color:#12345f}
+.primary{background:linear-gradient(135deg,#1976e8,#145bbb);box-shadow:0 4px 10px #1769d21c}
+.primary:hover{background:linear-gradient(135deg,#145bbb,#0f50a8)}
+.secondary{background:#eaf2fc;color:#164b8d}
+.metric-icon{background:#e8f2ff;color:#1769d2}
+.metric:nth-child(2) .metric-icon{background:#fff0df;color:#d96b0b}
+.metric:nth-child(3) .metric-icon{background:#e8f2ff;color:#1769d2}
+.metric:nth-child(4) .metric-icon{background:#fff0df;color:#d96b0b}
+.bar{background:linear-gradient(180deg,#ffad4d,#f58220)}
+.product .p-icon{background:#fff1e2}
+.product strong{color:#1769d2}
+.product:hover{border-color:#f5a34e;box-shadow:0 7px 20px #f5822017}
+.category-row button{background:#edf4fc;color:#315778}
+.category-row button.active{background:#1769d2;color:#fff}
+.category-row button:hover{border-color:#f58220}
+.login-screen{background:radial-gradient(circle at 12% 12%,#d9eaff,transparent 40%),radial-gradient(circle at 88% 85%,#ffe8d1,transparent 34%),#f4f8fd}
+.login-card{border-top:4px solid #f58220;box-shadow:0 24px 70px #12345f17}
+.login-card h2{color:#12345f}
+.avatar{background:#fff0df;color:#a64d00}
+.status.low{background:#fff0df;color:#a95800}
+.toast{background:#12345f;border-left:4px solid #ff922e}
+body.dark{--bg:#0b1422;--panel:#121f32;--text:#edf4ff;--muted:#a2b4cb;--line:#2b3d55;--nav:#081426;--shadow:0 8px 24px #0003;--primary:#3987ee;--primary2:#1769d2}
+body.dark .topbar h2{color:#edf4ff}
+body.dark .nav button.active,body.dark .nav button:hover{background:#1b3c64}
+body.dark .login-screen{background:radial-gradient(circle at 12% 12%,#1c3b61,transparent 40%),radial-gradient(circle at 88% 85%,#50331e,transparent 34%),var(--bg)}
+body.dark .secondary,body.dark .mobile-menu{background:#253a56;color:#e1edff}
+@media(max-width:720px){.topbar{box-shadow:0 3px 12px #15365c0a}.sidebar{border-right:2px solid #f58220}}
+</style>
+</head>
+<body>
+<section class="login-screen" id="loginScreen" aria-label="Acesso ao PDV-WD">
+  <form class="login-card" id="loginForm">
+    <div class="login-brand"><div class="logo">WD</div><div><strong>PDV-WD</strong><div style="font-size:12px;color:var(--muted);margin-top:3px">Gestão Comercial Integrada</div></div></div>
+    <h2>Acesso ao sistema</h2>
+    <p>Introduz o teu código pessoal. Cada utilizador criado pelo administrador deve usar o seu próprio código.</p>
+    <label class="field" for="adminCode">Código de acesso<input id="adminCode" name="adminCode" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Introduz o código" required autofocus></label>
+    <div class="login-error" id="loginError" role="alert"></div>
+    <button class="primary" type="submit">Entrar no PDV-WD</button>
+    <p class="demo-warning"><strong>Modo de demonstração:</strong> este código está incluído no HTML e pode ser descoberto por quem inspecionar o ficheiro. Não uses esta versão para proteger dados reais. A autenticação segura exige servidor e base de dados.</p>
+  </form>
+</section>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">WD</div><div><h1>PDV-WD</h1><small>Gestão Comercial Integrada</small></div></div>
+  <div><div class="nav-label">Principal</div><nav class="nav" id="nav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span>Visão geral</button>
+    <button data-page="pos"><span class="ico">▣</span>Ponto de venda</button>
+    <button data-page="sales"><span class="ico">↗</span>Vendas</button>
+    <button data-page="products"><span class="ico">▤</span>Produtos e stock</button>
+    <button data-page="restaurant"><span class="ico">▦</span>Mesas e pedidos</button>
+    <button data-page="customers"><span class="ico">♙</span>Clientes</button>
+    <button data-page="suppliers"><span class="ico">▧</span>Fornecedores</button>
+  </nav></div>
+  <div><div class="nav-label">Gestão</div><nav class="nav">
+    <button data-page="cash"><span class="ico">◉</span>Caixa e turnos</button>
+    <button data-page="reports"><span class="ico">▥</span>Relatórios</button>
+    <button data-page="users"><span class="ico">♙</span>Utilizadores e acessos</button>
+    <button data-page="settings"><span class="ico">⚙</span>Configurações</button>
+  </nav></div>
+  <div class="sidebar-bottom" id="sidebarUser">Super Administrador<br>Versão demonstrativa 0.5<br>Moçambique · MZN</div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="top-left"><button class="mobile-menu" id="menuBtn" aria-label="Abrir menu">☰</button><div><h2 id="topTitle">Visão geral</h2><div class="crumb">PDV-WD / <span id="crumb">Painel de controlo</span></div></div></div><div class="top-actions"><input class="search" id="globalSearch" placeholder="Pesquisar produtos..." aria-label="Pesquisar produtos"><button class="secondary" id="themeBtn" title="Alternar tema">☾</button><div class="avatar" id="userAvatar" title="Utilizador">SA</div><button class="logout-btn" id="logoutBtn" type="button">Sair</button></div></header>
+<div class="content" id="content"></div>
+</main>
+</div>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<script>
+const DEMO_ADMIN_ACCESS_CODE = '112610'; // Apenas para demonstração local; nunca usar como segurança de produção.
+const money = n => new Intl.NumberFormat('pt-MZ',{style:'currency',currency:'MZN',maximumFractionDigits:2}).format(n);
+const seedProducts = [
+ {id:1,name:'Água mineral 500ml',sku:'BEB-001',category:'Bebidas',price:35,stock:80,icon:'💧'},
+ {id:2,name:'Refrigerante lata',sku:'BEB-002',category:'Bebidas',price:60,stock:42,icon:'🥤'},
+ {id:3,name:'Café expresso',sku:'CAF-001',category:'Cafeteria',price:75,stock:120,icon:'☕'},
+ {id:4,name:'Sanduíche misto',sku:'LAN-001',category:'Comidas',price:180,stock:24,icon:'🥪'},
+ {id:5,name:'Hambúrguer clássico',sku:'LAN-002',category:'Comidas',price:320,stock:15,icon:'🍔'},
+ {id:6,name:'Batatas fritas',sku:'LAN-003',category:'Comidas',price:140,stock:20,icon:'🍟'},
+ {id:7,name:'Arroz (1 kg)',sku:'RET-001',category:'Retalho',price:95,stock:55,icon:'🍚'},
+ {id:8,name:'Óleo alimentar 1L',sku:'RET-002',category:'Retalho',price:150,stock:18,icon:'🫗'},
+ {id:9,name:'Bolo de fatia',sku:'DOC-001',category:'Pastelaria',price:110,stock:9,icon:'🍰'}
+];
+let products = JSON.parse(localStorage.getItem('pdvwd_products')||'null') || seedProducts;
+let sales = JSON.parse(localStorage.getItem('pdvwd_sales')||'[]');
+let customers = JSON.parse(localStorage.getItem('pdvwd_customers')||'null') || [{id:1,name:'Cliente balcão',phone:'',type:'Particular'},{id:2,name:'Cliente demonstração',phone:'+258 84 000 0000',type:'Particular'}];
+let users = JSON.parse(localStorage.getItem('pdvwd_users')||'[]');
+users=users.map(u=>({...u,role:u.role==='Operador'?'Operador de Caixa':u.role}));
+let currentUser = null;
+let cart = [], currentPage='dashboard', category='Todos', saleSeq=1, cashOpen=localStorage.getItem('pdvwd_cash')==='open';
+
+const ROLE_PAGES = {
+  'Super Administrador': ['dashboard','pos','sales','products','restaurant','customers','suppliers','cash','reports','users','settings'],
+  'Administrador': ['dashboard','pos','sales','products','restaurant','customers','suppliers','cash','reports'],
+  'Gerente': ['dashboard','sales','products','restaurant','customers','suppliers','cash','reports'],
+  'Operador de Caixa': ['dashboard','pos','cash'],
+  'Vendedor': ['dashboard','pos','sales','customers'],
+  'Gestor de Stock': ['dashboard','products','suppliers']
+};
+const ROLE_ACTIONS = {
+  'Super Administrador': ['*'],
+  'Administrador': ['checkout','clear-cart','open-cash','close-cash','add-product','add-customer','export-sales','save-settings','barcode','table-info','supplier-info'],
+  'Gerente': ['checkout','clear-cart','open-cash','close-cash','add-product','add-customer','export-sales','barcode','table-info','supplier-info'],
+  'Operador de Caixa': ['checkout','clear-cart','open-cash','close-cash'],
+  'Vendedor': ['checkout','clear-cart','add-customer'],
+  'Gestor de Stock': ['add-product','supplier-info','barcode']
+};
+function canPage(page, user=currentUser) {
+  return !!user && (ROLE_PAGES[user.role] || ROLE_PAGES['Operador de Caixa']).includes(page);
+}
+function canAction(actionName, user=currentUser) {
+  if (!user) return false;
+  const allowed=ROLE_ACTIONS[user.role] || ROLE_ACTIONS['Operador de Caixa'];
+  return allowed.includes('*') || allowed.includes(actionName);
+}
+function applyRoleAccess() {
+  document.querySelectorAll('[data-page]').forEach(b=>{
+    b.classList.toggle('hidden', !canPage(b.dataset.page));
+  });
+}
+
+function persist(){localStorage.setItem('pdvwd_products',JSON.stringify(products));localStorage.setItem('pdvwd_sales',JSON.stringify(sales));localStorage.setItem('pdvwd_customers',JSON.stringify(customers));localStorage.setItem('pdvwd_users',JSON.stringify(users));localStorage.setItem('pdvwd_cash',cashOpen?'open':'closed')}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.remove('hidden');setTimeout(()=>el.classList.add('hidden'),3200)}
+function setPage(page){if(!canPage(page)){toast('O teu perfil não tem permissão para abrir este módulo.');return}currentPage=page;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('sidebar').classList.remove('open');render()}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
+document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
+document.getElementById('themeBtn').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('pdvwd_dark',document.body.classList.contains('dark'));};
+if(localStorage.getItem('pdvwd_dark')==='true')document.body.classList.add('dark');
+function activateSession(user){currentUser=user;sessionStorage.setItem('pdvwd_session_user',JSON.stringify(user));document.body.classList.add('authenticated');document.getElementById('userAvatar').textContent=(user.name||'U').split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();document.getElementById('userAvatar').title=user.name+' · '+user.role;document.getElementById('sidebarUser').innerHTML=escapeHtml(user.role)+'<br>'+escapeHtml(user.name)+'<br>Versão demonstrativa 0.5<br>Moçambique · MZN';applyRoleAccess();if(!canPage(currentPage,user))currentPage='dashboard';}
+try{const savedSession=JSON.parse(sessionStorage.getItem('pdvwd_session_user')||'null');if(savedSession){if(savedSession.role==='Super Administrador'||users.some(u=>u.id===savedSession.id&&u.active&&u.code)){activateSession(savedSession)}}}catch(e){}
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const code=document.getElementById('adminCode').value.trim();const err=document.getElementById('loginError');if(code===DEMO_ADMIN_ACCESS_CODE){activateSession({id:'root',name:'Super Administrador',role:'Super Administrador'});err.textContent='';document.getElementById('adminCode').value='';render();}else{const user=users.find(u=>u.active&&u.code===code);if(user){activateSession({id:user.id,name:user.name,role:user.role});err.textContent='';document.getElementById('adminCode').value='';currentPage='dashboard';render();}else{err.textContent='Código inválido ou utilizador desativado. Contacta o administrador.';document.getElementById('adminCode').select();}}});
+document.getElementById('logoutBtn').addEventListener('click',()=>{sessionStorage.removeItem('pdvwd_session_user');document.body.classList.remove('authenticated');currentUser=null;document.getElementById('adminCode').value='';document.getElementById('loginError').textContent='';});
+document.getElementById('globalSearch').addEventListener('input',e=>{if(currentPage!=='pos'&&currentPage!=='products')setPage('products');render(e.target.value)});
+function pageHeader(title,sub,buttons=''){return `<div class="page-head"><div><h3>${title}</h3><p>${sub}</p></div><div class="head-buttons">${buttons}</div></div>`}
+function panel(title,body,extra=''){return `<section class="panel"><div class="panel-head"><h4>${title}</h4>${extra}</div>${body}</section>`}
+function render(query=''){
+if(currentUser && !canPage(currentPage)) currentPage='dashboard';
+const titles={dashboard:'Visão geral',pos:'Ponto de venda',sales:'Vendas',products:'Produtos e stock',restaurant:'Mesas e pedidos',customers:'Clientes',suppliers:'Fornecedores',cash:'Caixa e turnos',reports:'Relatórios',users:'Utilizadores e acessos',settings:'Configurações'};
+document.getElementById('topTitle').textContent=titles[currentPage]||'PDV-WD';document.getElementById('crumb').textContent=titles[currentPage]||'Painel';
+const root=document.getElementById('content');
+if(currentPage==='dashboard')root.innerHTML=dashboard();
+if(currentPage==='pos')root.innerHTML=pos();
+if(currentPage==='sales')root.innerHTML=salesPage();
+if(currentPage==='products')root.innerHTML=productsPage(query);
+if(currentPage==='restaurant')root.innerHTML=restaurantPage();
+if(currentPage==='customers')root.innerHTML=customersPage();
+if(currentPage==='suppliers')root.innerHTML=suppliersPage();
+if(currentPage==='cash')root.innerHTML=cashPage();
+if(currentPage==='reports')root.innerHTML=reportsPage();
+if(currentPage==='settings')root.innerHTML=settingsPage();
+if(currentPage==='users')root.innerHTML=usersPage();
+bindDynamic();
+}
+function dashboard(){
+const today=new Date().toLocaleDateString('en-CA');const todays=sales.filter(s=>s.date===today);const total=todays.reduce((a,s)=>a+s.total,0);const units=todays.reduce((a,s)=>a+s.items.reduce((x,i)=>x+i.qty,0),0);
+const vals=[12,18,14,25,21,30,24].map((v,i)=>({d:['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'][i],v:v*(sales.length?1:0.8)}));
+return `${pageHeader('Bom dia 👋','Aqui está o resumo da atividade do teu negócio.',`<button class="secondary" data-action="export-sales">Exportar vendas</button><button class="primary" data-goto="pos">＋ Nova venda</button>`)}
+<div class="cards">
+<div class="card metric"><div class="metric-top">Vendas de hoje <span class="metric-icon">↗</span></div><strong>${money(total)}</strong><small>${todays.length} transações registadas</small></div>
+<div class="card metric"><div class="metric-top">Artigos vendidos <span class="metric-icon">▤</span></div><strong>${units}</strong><small>Unidades em vendas registadas</small></div>
+<div class="card metric"><div class="metric-top">Produtos ativos <span class="metric-icon">◈</span></div><strong>${products.length}</strong><small>${products.filter(p=>p.stock<=10).length} com stock baixo</small></div>
+<div class="card metric"><div class="metric-top">Estado da caixa <span class="metric-icon">◉</span></div><strong style="font-size:21px">${cashOpen?'Aberta':'Fechada'}</strong><small>${cashOpen?'Turno em andamento':'Abre a caixa para iniciar'}</small></div></div>
+<div class="grid-main"><div>${panel('Atividade de vendas — demonstração',`<div class="chart">${vals.map(x=>`<div class="bar-group"><div class="bar" style="height:${x.v*2.5}px"></div><div class="bar-label">${x.d}</div></div>`).join('')}</div><div style="display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font-size:11px"><span>Gráfico ilustrativo, não representa histórico real.</span><span>MZN</span></div>`)}
+${panel('Produtos com stock baixo',`<div class="activity">${products.filter(p=>p.stock<=10).slice(0,4).map(p=>`<div class="activity-item"><div class="dot">⚠</div><div><b>${p.name}</b><small>${p.stock} unidades disponíveis</small></div><span class="amount">${p.stock===0?'Esgotado':'Stock baixo'}</span></div>`).join('')||'<div class="empty">Não há alertas de stock.</div>'}</div>`)}</div>
+<div>${panel('Vendas recentes',`<div class="activity">${sales.slice(-5).reverse().map(s=>`<div class="activity-item"><div class="dot">✓</div><div><b>${s.id}</b><small>${s.time} · ${s.method}</small></div><span class="amount">${money(s.total)}</span></div>`).join('')||'<div class="empty">Ainda não existem vendas. Cria uma venda de demonstração no POS.</div>'}</div>`)}
+${panel('Acesso rápido',`<div class="activity"><button class="secondary" data-goto="products">＋ Registar produto</button><button class="secondary" data-goto="customers">♙ Adicionar cliente</button><button class="secondary" data-goto="restaurant">▦ Abrir mesas</button><button class="secondary" data-goto="reports">▥ Consultar relatórios</button></div>`)}</div></div>`;
+}
+function pos(){
+const cats=['Todos',...new Set(products.map(p=>p.category))];
+return `${pageHeader('Ponto de venda','Seleciona os produtos, confirma o carrinho e regista um pagamento.',`<span class="status ${cashOpen?'ok':'low'}">${cashOpen?'Caixa aberta':'Caixa fechada'}</span>`)}
+${!cashOpen?'<div class="notice">A caixa está fechada. Para esta demonstração, podes abrir a caixa no módulo “Caixa e turnos”.</div>':''}
+<div class="pos-layout"><section class="panel"><div class="toolbar"><input id="posSearch" placeholder="Pesquisar nome ou código..." aria-label="Pesquisar produto"><button class="secondary" data-action="barcode">▥ Código de barras</button></div><div class="category-row">${cats.map(c=>`<button class="${category===c?'active':''}" data-category="${c}">${c}</button>`).join('')}</div><div class="product-grid">${products.filter(p=>(category==='Todos'||p.category===category)&&(!document.getElementById('posSearch')?.value||`${p.name} ${p.sku}`.toLowerCase().includes(document.getElementById('posSearch').value.toLowerCase()))).map(p=>`<button class="product" data-add="${p.id}" ${p.stock<=0?'disabled':''}><div style="display:flex;justify-content:space-between;gap:8px"><div class="p-icon">${p.icon||'📦'}</div><small>${p.stock} un.</small></div><div><b>${p.name}</b><small>${p.sku}</small></div><strong>${money(p.price)}</strong></button>`).join('')}</div></section>
+<section class="panel"><div class="panel-head"><h4>Venda atual</h4><button class="danger" data-action="clear-cart">Limpar</button></div><div id="cart">${cartMarkup()}</div></section></div>`;
+}
+function cartMarkup(){
+if(!cart.length)return '<div class="empty">🛒<br><br>O carrinho está vazio.<br>Seleciona um produto para começar.</div>';
+const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+return `${cart.map(i=>`<div class="cart-line"><div><b>${i.name}</b><small>${money(i.price)} × ${i.qty}</small></div><div class="qty"><button data-qty="${i.id}" data-delta="-1" aria-label="Diminuir">−</button><b>${i.qty}</b><button data-qty="${i.id}" data-delta="1" aria-label="Aumentar">+</button></div></div>`).join('')}
+<div class="totals"><div class="total-row"><span>Subtotal</span><b>${money(subtotal)}</b></div><div class="total-row"><span>Impostos</span><span>Por configurar</span></div><div class="total-row final"><span>Total</span><span>${money(subtotal)}</span></div></div>
+<label class="field">Método de pagamento<select id="payMethod"><option>Numerário</option><option>Cartão</option><option>Transferência</option><option>Outro</option></select></label><div style="height:10px"></div><button class="primary" style="width:100%" data-action="checkout">Registar pagamento · ${money(subtotal)}</button><p style="font-size:10px;color:var(--muted);line-height:1.5">Demonstração local: não emite documento fiscal certificado nem processa pagamentos externos.</p>`;
+}
+function productsPage(query=''){
+return `${pageHeader('Produtos e stock','Catálogo demonstrativo de produtos e quantidades.',`<button class="primary" data-action="add-product">＋ Novo produto</button>`)}
+<div class="notice">Os dados são guardados neste navegador (localStorage), neste dispositivo. Não existe ainda base de dados central ou sincronização.</div>
+<div class="panel"><div class="toolbar"><input id="productSearch" placeholder="Pesquisar por nome, SKU ou categoria..." value="${escapeHtml(query)}"><select id="stockFilter"><option value="all">Todos os estados</option><option value="low">Stock baixo (≤ 10)</option><option value="out">Esgotados</option></select></div><div class="table-wrap"><table><thead><tr><th>Produto</th><th>SKU</th><th>Categoria</th><th>Preço</th><th>Stock</th><th>Estado</th><th>Ações</th></tr></thead><tbody id="productRows">${productRows(query,'all')}</tbody></table></div></div>`;
+}
+function productRows(q='',filter='all'){
+return products.filter(p=>`${p.name} ${p.sku} ${p.category}`.toLowerCase().includes((q||'').toLowerCase())).filter(p=>filter==='low'?p.stock<=10:filter==='out'?p.stock<=0:true).map(p=>`<tr><td><b>${p.icon||'📦'} ${p.name}</b></td><td>${p.sku}</td><td>${p.category}</td><td>${money(p.price)}</td><td>${p.stock}</td><td><span class="status ${p.stock===0?'off':p.stock<=10?'low':'ok'}">${p.stock===0?'Esgotado':p.stock<=10?'Stock baixo':'Disponível'}</span></td><td><button class="secondary" data-edit-product="${p.id}">Editar</button></td></tr>`).join('')||'<tr><td colspan="7" class="empty">Nenhum produto encontrado.</td></tr>';
+}
+function salesPage(){return `${pageHeader('Vendas','Histórico de transações registadas neste navegador.',`<button class="secondary" data-action="export-sales">Exportar CSV</button><button class="primary" data-goto="pos">＋ Nova venda</button>`)}<div class="panel"><div class="toolbar"><input id="salesSearch" placeholder="Pesquisar número ou pagamento..."></div><div class="table-wrap"><table><thead><tr><th>Documento interno</th><th>Data</th><th>Hora</th><th>Artigos</th><th>Pagamento</th><th>Total</th></tr></thead><tbody id="salesRows">${salesRows()}</tbody></table></div></div>`}
+function salesRows(q=''){return sales.slice().reverse().filter(s=>`${s.id} ${s.method} ${s.date}`.toLowerCase().includes((q||'').toLowerCase())).map(s=>`<tr><td><b>${s.id}</b></td><td>${s.date}</td><td>${s.time}</td><td>${s.items.reduce((a,i)=>a+i.qty,0)}</td><td>${s.method}</td><td><b>${money(s.total)}</b></td></tr>`).join('')||'<tr><td colspan="6" class="empty">Sem vendas registadas.</td></tr>'}
+function restaurantPage(){const tables=Array.from({length:12},(_,i)=>({n:i+1,state:i===1||i===5?'Ocupada':i===8?'Reservada':'Livre'}));return `${pageHeader('Mesas e pedidos','Vista demonstrativa da sala de restauração.',`<button class="primary" data-action="table-info">＋ Nova reserva</button>`)}<div class="notice">A planta é ilustrativa. Pedidos de cozinha, reservas persistentes e sincronização em tempo real ainda não estão implementados.</div><div class="cards">${[['Mesas livres',9],['Ocupadas',2],['Reservadas',1],['Pedidos ativos',2]].map(([l,n])=>`<div class="card metric"><div class="metric-top">${l}<span class="metric-icon">▦</span></div><strong>${n}</strong><small>Dados demonstrativos</small></div>`).join('')}</div><div class="panel"><div class="panel-head"><h4>Sala principal</h4><div><span class="status ok">Livre</span> <span class="status low">Ocupada</span> <span class="status off">Reservada</span></div></div><div class="product-grid">${tables.map(t=>`<button class="product" data-table="${t.n}"><div class="p-icon">▦</div><div><b>Mesa ${String(t.n).padStart(2,'0')}</b><small>${t.state}</small></div><span class="status ${t.state==='Livre'?'ok':t.state==='Ocupada'?'low':'off'}">${t.state}</span></button>`).join('')}</div></div>`}
+function customersPage(){return `${pageHeader('Clientes','Registo local de clientes demonstrativos.',`<button class="primary" data-action="add-customer">＋ Novo cliente</button>`)}<div class="panel"><div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Telefone</th><th>Tipo</th><th>Ações</th></tr></thead><tbody>${customers.map(c=>`<tr><td><b>${escapeHtml(c.name)}</b></td><td>${escapeHtml(c.phone||'—')}</td><td>${c.type}</td><td><button class="secondary" data-customer-info="${c.id}">Detalhes</button></td></tr>`).join('')}</tbody></table></div></div>`}
+function suppliersPage(){return `${pageHeader('Fornecedores','Estrutura visual inicial para futura gestão de compras.',`<button class="primary" data-action="supplier-info">＋ Novo fornecedor</button>`)}${panel('Módulo em preparação','<div class="empty">O registo de fornecedores, encomendas, receções e contas correntes ainda não está ligado à base de dados.</div>')}`}
+function cashPage(){return `${pageHeader('Caixa e turnos','Controla o estado de caixa nesta demonstração.',`<span class="status ${cashOpen?'ok':'low'}">${cashOpen?'Caixa aberta':'Caixa fechada'}</span>`)}<div class="cards"><div class="card metric"><div class="metric-top">Estado <span class="metric-icon">◉</span></div><strong style="font-size:22px">${cashOpen?'Aberta':'Fechada'}</strong><small>Armazenado neste navegador</small></div><div class="card metric"><div class="metric-top">Vendas registadas <span class="metric-icon">↗</span></div><strong>${money(sales.reduce((a,s)=>a+s.total,0))}</strong><small>Histórico local</small></div></div><div class="panel"><h4>Operações de caixa</h4><p style="color:var(--muted);font-size:13px">A abertura de caixa permite testar o fluxo local do POS. Não há conferência de numerário nem fecho financeiro auditável nesta versão.</p><div class="toolbar">${cashOpen?'<button class="danger" data-action="close-cash">Fechar caixa</button>':'<button class="primary" data-action="open-cash">Abrir caixa</button>'}</div></div>`}
+function reportsPage(){const total=sales.reduce((a,s)=>a+s.total,0);const count=sales.length;const units=sales.reduce((a,s)=>a+s.items.reduce((x,i)=>x+i.qty,0),0);return `${pageHeader('Relatórios','Indicadores calculados a partir das vendas locais.',`<button class="secondary" data-action="export-sales">Exportar CSV</button>`)}<div class="cards"><div class="card metric"><div class="metric-top">Vendas acumuladas</div><strong>${money(total)}</strong><small>Sem impostos fiscais calculados</small></div><div class="card metric"><div class="metric-top">Transações</div><strong>${count}</strong><small>Vendas locais</small></div><div class="card metric"><div class="metric-top">Unidades vendidas</div><strong>${units}</strong><small>Quantidade registada</small></div><div class="card metric"><div class="metric-top">Ticket médio</div><strong>${money(count?total/count:0)}</strong><small>Total ÷ transações</small></div></div>${panel('Nota sobre os dados','<div class="notice">Estes indicadores não incluem custos, impostos, devoluções, despesas nem sincronização multiestabelecimento. Não representam lucro líquido.</div>')}`}
+function usersPage(){
+const rows=users.map(u=>`<tr><td><b>${escapeHtml(u.name)}</b></td><td>${escapeHtml(u.role)}</td><td><code>${'•'.repeat(Math.min(String(u.code).length,10))}</code></td><td><span class="status ${u.active?'ok':'off'}">${u.active?'Ativo':'Desativado'}</span></td><td><button class="secondary" data-user-toggle="${u.id}">${u.active?'Desativar':'Ativar'}</button> <button class="danger" data-user-delete="${u.id}">Eliminar</button></td></tr>`).join('');
+return `${pageHeader('Utilizadores e acessos','Cria contas individuais, define o perfil e limita os módulos disponíveis para cada pessoa.',`<button class="primary" data-action="add-user">＋ Adicionar utilizador</button>`)}<div class="notice"><b>Importante:</b> esta é uma demonstração local. Os códigos ficam guardados neste navegador e não constituem autenticação segura. Para uso real, a validação deve ocorrer num servidor.</div><div class="panel"><div class="panel-head"><h4>Permissões por perfil</h4><small>O menu e as ações são limitados conforme a função</small></div><div class="table-wrap"><table><thead><tr><th>Perfil</th><th>Acesso principal</th></tr></thead><tbody><tr><td><b>Super Administrador</b></td><td>Todos os módulos e gestão de contas</td></tr><tr><td><b>Administrador</b></td><td>Operação, stock, caixa, relatórios e configurações operacionais; sem gestão de utilizadores</td></tr><tr><td><b>Gerente</b></td><td>Vendas, stock, mesas, clientes, fornecedores, caixa e relatórios</td></tr><tr><td><b>Operador de Caixa</b></td><td>Ponto de venda e abertura/fecho de caixa</td></tr><tr><td><b>Vendedor</b></td><td>Ponto de venda, vendas e clientes</td></tr><tr><td><b>Gestor de Stock</b></td><td>Produtos, stock e fornecedores</td></tr></tbody></table></div></div><div class="cards"><div class="card metric"><div class="metric-top">Contas registadas</div><strong>${users.length}</strong><small>Além do Super Administrador</small></div><div class="card metric"><div class="metric-top">Contas ativas</div><strong>${users.filter(u=>u.active).length}</strong><small>Podem iniciar sessão</small></div></div><div class="panel"><div class="panel-head"><h4>Contas de utilizador</h4><small>O código nunca é mostrado integralmente nesta lista</small></div><div class="table-wrap"><table><thead><tr><th>Nome</th><th>Perfil</th><th>Código</th><th>Estado</th><th>Ações</th></tr></thead><tbody>${rows||'<tr><td colspan="5"><div class="empty">Ainda não existem utilizadores. Seleciona “Adicionar utilizador” para criar a primeira conta.</div></td></tr>'}</tbody></table></div></div>`}
+function settingsPage(){return `${pageHeader('Configurações','Parâmetros iniciais da demonstração.',`<button class="primary" data-action="save-settings">Guardar preferências</button>`)}<div class="notice">Os parâmetros abaixo são informativos. A alteração de país ou moeda não altera regras fiscais e não certifica documentos.</div><div class="panel"><div class="form-grid"><label class="field">Nome comercial<input id="settingName" value="${escapeHtml(localStorage.getItem('pdvwd_business')||'PDV-WD Comércio e Restauração')}"></label><label class="field">País<select id="settingCountry"><option value="MZ" selected>Moçambique</option><option value="PT">Portugal</option></select></label><label class="field">Moeda<input value="MZN — Metical" disabled></label><label class="field">Fuso horário<input value="Africa/Maputo" disabled></label><label class="field">Tema<select id="settingTheme"><option value="light">Claro</option><option value="dark">Escuro</option></select></label><label class="field">Modo de operação<input value="Demonstração local — sem sincronização" disabled></label></div><p style="color:var(--muted);font-size:12px;margin-top:18px">As configurações são guardadas apenas neste navegador.</p></div>${panel('Sobre o sistema','<b>PDV-WD · Protótipo HTML interativo</b><p style="color:var(--muted);font-size:13px">Versão 0.5 · Códigos individuais e permissões demonstrativas por perfil · Dados locais · Sem autenticação segura no servidor, base de dados central ou conformidade fiscal validada.</p>')}`}
+function bindDynamic(){
+document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>setPage(b.dataset.goto));
+document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{category=b.dataset.category;render()});
+document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>addToCart(+b.dataset.add));
+document.querySelectorAll('[data-qty]').forEach(b=>b.onclick=()=>changeQty(+b.dataset.qty,+b.dataset.delta));
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>action(b.dataset.action));
+document.querySelectorAll('[data-edit-product]').forEach(b=>b.onclick=()=>editProduct(+b.dataset.editProduct));
+document.querySelectorAll('[data-table]').forEach(b=>b.onclick=()=>toast(`Mesa ${b.dataset.table}: fluxo de pedidos ainda não implementado.`));
+document.querySelectorAll('[data-customer-info]').forEach(b=>b.onclick=()=>{const c=customers.find(x=>x.id===+b.dataset.customerInfo);alert(`Cliente: ${c.name}\nTelefone: ${c.phone||'—'}\nTipo: ${c.type}`)});
+document.querySelectorAll('[data-user-toggle]').forEach(b=>b.onclick=()=>{const u=users.find(x=>x.id===b.dataset.userToggle);if(!u)return;u.active=!u.active;persist();render();toast(`Utilizador ${u.active?'ativado':'desativado'}.`)});
+document.querySelectorAll('[data-user-delete]').forEach(b=>b.onclick=()=>{const u=users.find(x=>x.id===b.dataset.userDelete);if(!u)return;if(!confirm(`Eliminar a conta de ${u.name}?`))return;users=users.filter(x=>x.id!==u.id);persist();render();toast('Conta eliminada.');});
+const ps=document.getElementById('posSearch');if(ps)ps.addEventListener('input',()=>{const focused=ps.selectionStart;render();const np=document.getElementById('posSearch');np.focus();np.setSelectionRange(focused,focused)});
+const prodSearch=document.getElementById('productSearch'),filter=document.getElementById('stockFilter');if(prodSearch)prodSearch.oninput=()=>{document.getElementById('productRows').innerHTML=productRows(prodSearch.value,filter.value)};if(filter)filter.onchange=()=>{document.getElementById('productRows').innerHTML=productRows(prodSearch.value,filter.value)};
+const ss=document.getElementById('salesSearch');if(ss)ss.oninput=()=>document.getElementById('salesRows').innerHTML=salesRows(ss.value);
+}
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p||p.stock<=0)return toast('Produto sem stock disponível.');const line=cart.find(x=>x.id===id);if(line){if(line.qty>=p.stock)return toast('Quantidade superior ao stock disponível.');line.qty++}else cart.push({id:p.id,name:p.name,price:p.price,qty:1});render()}
+function changeQty(id,delta){const line=cart.find(x=>x.id===id),p=products.find(x=>x.id===id);if(!line)return;if(delta>0&&line.qty>=p.stock)return toast('Quantidade superior ao stock disponível.');line.qty+=delta;if(line.qty<=0)cart=cart.filter(x=>x.id!==id);render()}
+function action(name){
+if(!canAction(name)){toast('Ação bloqueada: o teu perfil não tem permissão para isso.');return}
+if(name==='clear-cart'){cart=[];render();return}
+if(name==='checkout'){if(!cart.length)return toast('Adiciona produtos antes de concluir.');if(!cashOpen)return toast('Abre a caixa antes de registar a venda.');for(const i of cart){const p=products.find(p=>p.id===i.id);if(!p||p.stock<i.qty)return toast(`Stock insuficiente: ${i.name}`)}
+const total=cart.reduce((s,i)=>s+i.price*i.qty,0),now=new Date();const sale={id:'VD-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(sales.length+1).padStart(4,'0'),date:now.toLocaleDateString('en-CA'),time:now.toLocaleTimeString('pt-MZ',{hour:'2-digit',minute:'2-digit'}),items:cart.map(i=>({...i})),total,method:document.getElementById('payMethod')?.value||'Numerário',type:'DEMO'};for(const i of cart)products.find(p=>p.id===i.id).stock-=i.qty;sales.push(sale);cart=[];persist();render();toast(`Venda de demonstração registada: ${money(total)}`);return}
+if(name==='open-cash'){cashOpen=true;persist();render();toast('Caixa aberta localmente.');return}
+if(name==='close-cash'){if(cart.length)return toast('Esvazia o carrinho antes de fechar.');cashOpen=false;persist();render();toast('Caixa fechada localmente.');return}
+if(name==='add-user'){if(currentUser?.role!=='Super Administrador')return toast('Apenas o Super Administrador pode adicionar utilizadores.');const n=prompt('Nome completo do utilizador:');if(!n?.trim())return;const role=prompt('Escolhe o perfil escrevendo uma opção:\nAdministrador\nGerente\nOperador de Caixa\nVendedor\nGestor de Stock','Operador de Caixa');if(!role?.trim())return;const roles=['Administrador','Gerente','Operador de Caixa','Vendedor','Gestor de Stock'];const normalizedRole=roles.find(r=>r.toLowerCase()===role.trim().toLowerCase());if(!normalizedRole)return toast('Perfil inválido. Escolhe uma das opções apresentadas.');let code=prompt('Define um código pessoal de acesso (mínimo 4 dígitos):');if(!code)return;code=code.trim();if(!/^\d{4,12}$/.test(code))return toast('O código deve conter entre 4 e 12 dígitos.');if(code===DEMO_ADMIN_ACCESS_CODE||users.some(u=>u.code===code))return toast('Este código já está em uso. Escolhe outro.');users.push({id:'usr-'+Date.now(),name:n.trim(),role:normalizedRole,code,active:true,createdAt:new Date().toISOString()});persist();render();toast('Utilizador criado. Entrega o código pessoal diretamente ao utilizador.');return}
+if(name==='add-product'){const name=prompt('Nome do produto:');if(!name?.trim())return;const price=Number(prompt('Preço de venda em MZN:','100'));const stock=Number(prompt('Stock inicial:','10'));if(!Number.isFinite(price)||price<0||!Number.isInteger(stock)||stock<0)return toast('Preço ou stock inválido.');const sku='SKU-'+String(Date.now()).slice(-6);products.push({id:Math.max(0,...products.map(p=>p.id))+1,name:name.trim(),sku,category:'Geral',price,stock,icon:'📦'});persist();render();toast('Produto guardado neste navegador.');return}
+if(name==='add-customer'){const n=prompt('Nome do cliente:');if(!n?.trim())return;const phone=prompt('Telefone (opcional):')||'';customers.push({id:Math.max(0,...customers.map(c=>c.id))+1,name:n.trim(),phone,type:'Particular'});persist();render();toast('Cliente guardado neste navegador.');return}
+if(name==='export-sales'){const rows=[['Documento','Data','Hora','Método','Total MZN','Artigos'],...sales.map(s=>[s.id,s.date,s.time,s.method,s.total,s.items.map(i=>`${i.name} x${i.qty}`).join('; ')])];const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));a.download='pdv-wd-vendas-demo.csv';a.click();URL.revokeObjectURL(a.href);toast('Exportação CSV gerada.');return}
+if(name==='save-settings'){const n=document.getElementById('settingName')?.value||'';localStorage.setItem('pdvwd_business',n);const dark=document.getElementById('settingTheme')?.value==='dark';document.body.classList.toggle('dark',dark);localStorage.setItem('pdvwd_dark',dark);toast('Preferências locais guardadas.');return}
+if(name==='barcode')toast('Leitura real depende de scanner compatível; usa a pesquisa pelo código SKU nesta demonstração.');
+if(name==='table-info')toast('Reservas ainda não estão implementadas.');
+if(name==='supplier-info')toast('Gestão de fornecedores será implementada numa fase seguinte.');
+}
+function editProduct(id){if(!canAction('add-product'))return toast('O teu perfil não pode alterar produtos.');const p=products.find(x=>x.id===id);if(!p)return;const price=Number(prompt(`Preço de ${p.name} (MZN):`,String(p.price)));const stock=Number(prompt(`Stock de ${p.name}:`,String(p.stock)));if(!Number.isFinite(price)||price<0||!Number.isInteger(stock)||stock<0)return toast('Valores inválidos.');p.price=price;p.stock=stock;persist();render();toast('Produto atualizado localmente.')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+render();
+</script>
+</body>
+</html>
